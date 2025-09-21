@@ -2,7 +2,9 @@
 
 class TruthGuardAI {
     constructor() {
-        this.apiBaseUrl = 'http://localhost:8000';
+        const API_BASE_URL = window.location.hostname === 'localhost'
+  ? 'http://localhost:8000'
+  : 'https://truthguard-ai-backend.onrender.com';
         this.currentTab = 'text';
         this.initializeApp();
     }
@@ -341,3 +343,4 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     inputGroup.appendChild(sampleButtons);
 });
+
