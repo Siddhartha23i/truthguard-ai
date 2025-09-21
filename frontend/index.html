@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthGuard AI - Misinformation Detection Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>TruthGuard AI</h1>
+                    <span class="tagline">Combat Misinformation with AI</span>
+                </div>
+                <div class="language-selector">
+                    <select id="languageSelect" class="form-control">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="te">తెలుగు</option>
+                        <option value="bn">বাংলা</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="hi-en">Hinglish</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="text">
+                    <i class="fas fa-align-left"></i>
+                    Text Analysis
+                </button>
+                <button class="nav-tab" data-tab="image">
+                    <i class="fas fa-image"></i>
+                    Image Check
+                </button>
+                <button class="nav-tab" data-tab="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    Learn
+                </button>
+                <button class="nav-tab" data-tab="stats">
+                    <i class="fas fa-chart-bar"></i>
+                    Statistics
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Text Analysis Tab -->
+            <div id="text-tab" class="tab-content active">
+                <div class="analysis-section">
+                    <h2>Analyze Suspicious Content</h2>
+                    <div class="input-group">
+                        <textarea 
+                            id="contentInput" 
+                            placeholder="Paste the suspicious text, WhatsApp forward, or social media post here..."
+                            rows="6"
+                        ></textarea>
+                        <div class="input-controls">
+                            <label>
+                                <input type="checkbox" id="includeEducation" checked>
+                                Include educational insights
+                            </label>
+                            <button id="analyzeBtn" class="btn-primary">
+                                <i class="fas fa-search"></i>
+                                Analyze Content
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="resultsSection" class="results-section" style="display: none;">
+                    <div class="trust-score">
+                        <h3>Trust Score</h3>
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <span id="trustScore">0</span>%
+                            </div>
+                            <div class="verdict" id="verdict">ANALYZING...</div>
+                        </div>
+                    </div>
+
+                    <div class="claims-section">
+                        <h3>Analyzed Claims</h3>
+                        <div id="claimsList"></div>
+                    </div>
+
+                    <div class="explanation-section">
+                        <h3>Explanation</h3>
+                        <p id="explanationText"></p>
+                        <div class="sources">
+                            <h4>Sources:</h4>
+                            <ul id="sourcesList"></ul>
+                        </div>
+                    </div>
+
+                    <div class="educational-section" id="educationalSection">
+                        <h3>Educational Insights</h3>
+                        <div id="educationalContent"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Analysis Tab -->
+            <div id="image-tab" class="tab-content">
+                <div class="image-upload-section">
+                    <h2>Analyze Image for Misinformation</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drop an image here or click to select</p>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        <button class="btn-secondary" onclick="document.getElementById('imageInput').click()">
+                            Choose Image
+                        </button>
+                    </div>
+                    <div id="imagePreview" style="display: none;">
+                        <img id="previewImg" alt="Preview">
+                        <button id="analyzeImageBtn" class="btn-primary">Analyze Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Tab -->
+            <div id="education-tab" class="tab-content">
+                <div class="education-section">
+                    <h2>Learn to Spot Misinformation</h2>
+                    
+                    <div class="education-cards">
+                        <div class="education-card">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Common Manipulation Techniques</h3>
+                            <ul>
+                                <li><strong>Fear Mongering:</strong> Using fear without factual basis</li>
+                                <li><strong>False Causation:</strong> Claiming causation without evidence</li>
+                                <li><strong>Cherry Picking:</strong> Selecting only supporting facts</li>
+                                <li><strong>Context Manipulation:</strong> Wrong context for real information</li>
+                            </ul>
+                        </div>
+
+                        <div class="education-card">
+                            <i class="fas fa-search"></i>
+                            <h3>Verification Tips</h3>
+                            <ul>
+                                <li>Cross-check with multiple reliable sources</li>
+                                <li>Look for original sources and citations</li>
+                                <li>Check publication dates and context</li>
+                                <li>Use reverse image search for images</li>
+                                <li>Be skeptical of highly emotional content</li>
+                            </ul>
+                        </div>
+
+                        <div class="education-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Trusted Indian Sources</h3>
+                            <ul>
+                                <li>Press Information Bureau (PIB)</li>
+                                <li>Press Trust of India (PTI)</li>
+                                <li>Indian Council of Medical Research (ICMR)</li>
+                                <li>Election Commission of India</li>
+                                <li>Reserve Bank of India (RBI)</li>
+                            </ul>
+                        </div>
+
+                        <div class="education-card">
+                            <i class="fas fa-fact-check"></i>
+                            <h3>Fact-Checking Resources</h3>
+                            <ul>
+                                <li>PIB Fact Check</li>
+                                <li>Vishvas News</li>
+                                <li>Boom Live</li>
+                                <li>Alt News</li>
+                                <li>India Today Fact Check</li>
+                                <li>Factly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Tab -->
+            <div id="stats-tab" class="tab-content">
+                <div class="stats-section">
+                    <h2>System Statistics</h2>
+                    <div class="stats-grid" id="statsGrid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalChecks">0</div>
+                            <div class="stat-label">Total Checks</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="accuracyRate">96.2%</div>
+                            <div class="stat-label">Accuracy Rate</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="languagesSupported">6</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="avgResponseTime">1.2s</div>
+                            <div class="stat-label">Avg Response Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="loading-spinner"></div>
+            <p>Analyzing content with AI...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
