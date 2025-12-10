@@ -2,9 +2,6 @@
 
 **Hackathon Submission: AI-Powered Tool for Combating Misinformation**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Now-blue?style=for-the-badge)](https://your-deployed-url.onrender.com)
-[![Video Demo](https://img.shields.io/badge/Video%20Demo-Watch-red?style=for-the-badge)](https://your-demo-video-link)
-
 ## 🏆 Problem Statement
 Build an AI‑powered tool that detects potential misinformation and educates users on identifying credible, trustworthy content specifically for India's diverse digital ecosystem.
 
