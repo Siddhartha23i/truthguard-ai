@@ -31,10 +31,7 @@ Unlike existing fact-checkers that only label content as true/false, TruthGuard 
 4. **Multiple Interfaces**: Web app, browser extension, and bot integration
 5. **Source Transparency**: Always provides verifiable citations
 
-## 🚀 Live Demo
 
-### 🌐 Web Application
-**Live URL**: [https://truthguard-ai.onrender.com](https://your-deployed-url.onrender.com)
 
 ### 🎥 Demo Video (3 minutes)
 **Watch Demo**: [https://youtu.be/your-demo-video](https://your-demo-video-link)
